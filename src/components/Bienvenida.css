@@ -1,0 +1,85 @@
+.page{
+    background-image: url("https://wallpaperaccess.com/full/5673919.jpg");
+    background-size: cover;
+}
+
+.saludo {
+    color: white;
+    margin-left: 50%;
+    position: absolute;
+}
+
+.form_container{
+    background-color: white;
+    width: 20%;
+    height: 100%;
+    /* position: absolute; */
+}
+
+.login {
+    background-color: rgba(84, 150, 230, 0.941);
+    width: 300px;
+    height: 200px;
+    border: 2px solid white;
+    position: relative;
+
+}
+
+.login_title{
+color: white;
+}
+
+.login_label{
+    position: relative;
+}
+
+.login-input{
+    position: relative;
+}
+
+
+.register{
+    background-color:rgba(84, 150, 230, 0.941);
+    width: 300px;
+    height: 200px;
+    border: 2px solid white;
+    position: relative;
+
+}
+
+.register_title{
+    color: white;
+    }
+
+
+.caracteristicas{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* margin: 20px; */
+    gap: 10px;
+}
+
+.contactos{
+    background-image: url("https://img.freepik.com/premium-photo/concept-contact-us-blank-wooden-cubes-square-dice-with-symbol-email-telephone-address-placed-wood-background_44868-1254.jpg?w=2000");
+    /* background-size: 400px 300px; */
+    border: 2px solid white;
+    padding: 10px;
+    width: 200px;
+    height: 250px;
+    position: absolute;
+}
+.calendario{
+    background-image: url("https://thumbs.dreamstime.com/b/red-pin-event-calendar-background-close-up-time-red-pin-event-calendar-background-close-up-time-149540392.jpg");
+    border: 2px solid white;
+    padding: 10px;
+    width: 200px;
+    height: 250px;
+}
+.posts{
+    background-image: url("https://images.unsplash.com/photo-1578450671530-5b6a7c9f32a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cG9zdCUyMGl0fGVufDB8fDB8fA%3D%3D&w=1000&q=80");
+    border: 2px solid white;
+    padding: 10px;
+    width: 200px;
+    height: 250px;
+}
