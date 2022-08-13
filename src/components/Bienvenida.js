@@ -21,6 +21,7 @@ const Bienvenida = () => {
                 <button className='button_welcom'>Ingresar</button>
             </div>
             <Formik
+            // state de formik
                 initialValues={{
                     usuario:'',
                     mail:'',
@@ -28,7 +29,7 @@ const Bienvenida = () => {
                     confirmar:''
 
                 }}
-                
+                // Validaciones de formik
                 validate={(valores) => {
 
                     let errores = {};
@@ -51,15 +52,24 @@ const Bienvenida = () => {
 
                     if(!valores.confirmar){
                         errores.confirmar = 'Porfavor ingresa la contraseña.'
-                    } else if(valores.confirmar != valores.contraseña){
+                    } else if(valores.confirmar !== valores.contraseña){
                         errores.confirmar = "La contraseña debe ser igual a la ingresada."
                     }
 
                     return errores;
                 }}
                 onSubmit={(valores, {resetForm}) => {
+                    // rest formulario
                     resetForm();
-                    console.log("Formulario enviado")
+                    // Enviamos el registro del usuario
+
+                    axios.post('http://localhost:3001/api/users/register', {
+                        username: valores.usuario,
+                        email: valores.mail,
+                        contraseña: valores.contraseña
+                    }).then(() => {
+                        console.log('Formulario enviado.')
+                    })
                 }}
             >
                 {({values, touched, errors, handleSubmit, handleChange, handleBlur}) => (
@@ -93,7 +103,7 @@ const Bienvenida = () => {
                     <div className='register_password'>
                         <label >Contraseña: </label>
                         <input 
-                            type="password" 
+                            type="text" 
                             id='contraseña' 
                             name='contraseña'
                             onChange={handleChange}
@@ -104,7 +114,7 @@ const Bienvenida = () => {
                     <div className='register_confirm'>
                         <label>Confirmar contraseña: </label>
                         <input 
-                            type="password" 
+                            type="text" 
                             id='confirmar' 
                             name='confirmar'
                             onChange={handleChange}
