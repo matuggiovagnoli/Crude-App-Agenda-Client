@@ -3,6 +3,8 @@ import "./Bienvenida.css"
 import {Formik, Field} from 'formik'
 import axios from 'axios'
 
+
+
 const Bienvenida = () => {
   return (
     <div className='page'>
