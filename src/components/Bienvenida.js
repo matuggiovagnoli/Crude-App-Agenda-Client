@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Navigate} from "react-router-dom";
 import "./Bienvenida.css"
 import {Formik, Field} from 'formik'
 import axios from 'axios'
@@ -6,22 +7,58 @@ import axios from 'axios'
 
 
 const Bienvenida = () => {
+
+    const [body, setBody] = useState({ email: '', contraseña:'' })
+    const [user, setUser] = useState({})
+    
+
+    const inputChange = ({target}) => {
+        const { name, value } = target
+        setBody({
+            ...body,
+            [name]:value
+        })
+    };
+
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        let res = await axios.post('http://localhost:3001/api/users/login', {
+            email: body.email,
+            contraseña: body.contraseña
+              });
+              setUser(res.data)
+              console.log(user)
+    }
+
+
   return (
     <div className='page'>
         <h1 className='saludo'>BIENVENIDO A TU NUEVA AGENDA DIGITAL</h1>
         <div className='form_container'>
-            <div className='login'>
+            <form className='login'
+                onSubmit={handleSubmit}
+            >
                 <h3 className='login_title'>LOGIN</h3>
                 <div className='login_user'>
                     <label>E-mail: </label>
-                    <input type="text"></input>
+                    <input 
+                    type="text"
+                    name='email' 
+                    value={body.email}
+                    onChange={inputChange}
+                    />
                 </div>
                 <div className='login_password'>
                     <label>Contraseña: </label>
-                    <input type="password"></input>
+                    <input 
+                    type="password" 
+                    name='contraseña'
+                    value={body.contraseña}
+                    onChange={inputChange}
+                    />
                 </div>
-                <button className='button_welcom'>Ingresar</button>
-            </div>
+                <button className='button_welcom' type='submit'>Login</button>
+            </form>
             <Formik
             // state de formik
                 initialValues={{
@@ -61,7 +98,7 @@ const Bienvenida = () => {
                     return errores;
                 }}
                 onSubmit={(valores, {resetForm}) => {
-                    // rest formulario
+                    // resetear el formulario
                     resetForm();
                     // Enviamos el registro del usuario
 

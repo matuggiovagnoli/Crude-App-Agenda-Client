@@ -4,7 +4,6 @@ const Inicio = () => {
   return (
     <div>
         <h1>Hola "nombre" por donde empezamos hoy?</h1>
-        
     </div>
   )
 }

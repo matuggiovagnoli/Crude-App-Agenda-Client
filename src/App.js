@@ -4,15 +4,17 @@ import Bienvenida from './components/Bienvenida';
 import Inicio from "./components/Inicio"
 import Calendario from "./components/Calendario";
 import Contactos from './components/Contactos';
+import Posts from './components/Posts'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Bienvenida/>}/>
-        <Route path="/Inicio" element={<Inicio/>}/>
-        <Route path="/Inicio/Calendario" element={<Calendario/>}/>
-        <Route path="/Inicio/Contactos" element={<Contactos/>}/>
+        <Route path="/Inicio/:username" element={<Inicio/>}/>
+        <Route path="/Inicio/:username/Posts" element={<Posts/>}/>
+        <Route path="/Inicio/:username/Contactos" element={<Contactos/>}/>
+        <Route path="/Inicio/:username/Calendario" element={<Calendario/>}/>
       </Routes>
     </BrowserRouter>
   );
