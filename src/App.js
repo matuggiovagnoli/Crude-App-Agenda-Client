@@ -5,6 +5,7 @@ import Inicio from "./components/Inicio"
 import Calendario from "./components/Calendario";
 import Contactos from './components/Contactos';
 import Posts from './components/Posts'
+import { useEffect } from 'react';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/Inicio/:username/Posts" element={<Posts/>}/>
         <Route path="/Inicio/:username/Contactos" element={<Contactos/>}/>
         <Route path="/Inicio/:username/Calendario" element={<Calendario/>}/>
+        <Route path="*" element={<Navigate to="/"/>}/>
       </Routes>
     </BrowserRouter>
   );
